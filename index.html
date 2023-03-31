@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boolzapp</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- google-font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <div id="app">
+        <div class="wrapper">
+            <div class="left-col">
+                <div class="left-header">
+                    <div class="avatar-list"></div>
+                </div>
+                <div class="left-banner">
+                    <div class="avatar-list"></div>
+                </div>
+                <div class="left-search-bar">
+                    <!-- <span><i class="fa-solid fa-magnifying-glass"></i></span>
+                    <span> -->
+                    <input type="text" class="input-bar" placeholder="Cerca o inizia una nuova chat">
+                    </span>
+                </div>
+                <div class="scroll-list">
+                    <ul class="ul-list">
+                        <li class="contacts" v-for="people in contacts">
+                            <div class="avatar-list">{{people.avatar}}</div>
+                            <div class="person-info">
+                                <p class="strong">{{people.name}}</p>
+                                <p>Ultimo messaggio inviato</p>
+                            </div>
+                            <p>12:00</p>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="right-col">
+                <div class="right-header">
+                    <div class="avatar-list"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
