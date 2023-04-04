@@ -183,7 +183,15 @@ createApp({
                 status: 'sent'
               }  
               this.contacts[this.activeIndex].messages.push(message)
-              this.userMessage = ""
+              this.userMessage = "";
+              setTimeout(() => {
+                const staticMessage = {
+                    message: 'Ok',
+                    data: "12:00",
+                    status: "received"
+                }
+                this.contacts[this.activeIndex].messages.push(staticMessage)
+              }, 1000)
             }
         }
     }
