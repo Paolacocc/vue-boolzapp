@@ -1,8 +1,9 @@
 const { createApp } = Vue;
 
 createApp({
-    data(){
+    data() {
         return {
+            userMessage: "",
             activeIndex: 0,
             contacts: [
                 {
@@ -168,6 +169,22 @@ createApp({
                 }
             ]
 
+        }
+    },
+    methods: {
+        currentIndex(newIndex) {
+            this.activeIndex = newIndex;
+        },
+        insertMessage(){
+            if(this.userMessage.length > 0) {
+              const message = {
+                message: this.userMessage,
+                date: this.userMessage,
+                status: 'sent'
+              }  
+              this.contacts[this.activeIndex].messages.push(message)
+              this.userMessage = ""
+            }
         }
     }
 }).mount('#app');

@@ -117,6 +117,9 @@ body {
     font-size: .8rem;
     font-weight: 400;
 }
+.contacts.active {
+    background-color: lightblue;
+}
 
 /* RIGHT BAR */
 .right-col {
@@ -167,8 +170,13 @@ body {
     padding: 10px 5px;
     border-radius: 5px;
     word-wrap: break-word;
+   
+   
 }
-
+.date {
+    font-size: .6rem;
+    text-align: right;
+}
 .right-footer {
     height: 60px;
     background-color: rgb(233, 223, 209);

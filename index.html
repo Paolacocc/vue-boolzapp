@@ -40,7 +40,7 @@
                 </div>
                 <div class="scroll-list">
                     <ul class="ul-list">
-                        <li class="contacts" v-for="people in contacts">
+                        <li class="contacts" :class="index === activeIndex ? 'active' : ''" v-for="(people, index) in contacts" @click="currentIndex(index)">
 
                             <img class="avatar-list" :src="`img/avatar` + people.avatar +`.jpg`" alt="">
                             <div class="person-info">
@@ -65,16 +65,17 @@
                 <!-- /header right -->
                 <!-- main -->
                 <div class="right-main">
-                    <div class="msg-row sent">
+                    <!-- <div class="msg-row" 
+                    :class="message.status"
+                    v-for="">
                         <div class="messages">
                             ciao
                         </div>
-                    </div>
-                    <div class="msg-row received">
-                        <div class="messages">
-                    
-                            
-                            
+                    </div> -->
+                    <div class="msg-row" :class="sms.status" v-for="sms in contacts[activeIndex].messages">
+                        <div class="messages" >
+                           <p>{{sms.message}}</p> 
+                           <p class="date">{{sms.date}}</p>
                         </div>
                     </div>
 
@@ -87,7 +88,9 @@
                     <div class="icons">
                     <i class="fa-regular fa-face-smile"></i>
                 </div>
-                    <input type="text" class="footer-bar" name="" id="" placeholder="scrivi un messaggio">
+                    <input type="text" class="footer-bar" name="" id="" placeholder="scrivi un messaggio"
+                    v-model.trim="userMessage"
+                    @keyup.enter="insertMessage()" >
                     <div class="icons">
                     <i class="fa-solid fa-microphone"></i>
                 </div>
