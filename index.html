@@ -38,7 +38,8 @@
                 <div class="scroll-list">
                     <ul class="ul-list">
                         <li class="contacts" v-for="people in contacts">
-                            <div class="avatar-list">{{people.avatar}}</div>
+
+                            <img class="avatar-list" :src="`img/avatar` + people.avatar +`.jpg`" alt="">
                             <div class="person-info">
                                 <p class="strong">{{people.name}}</p>
                                 <p>Ultimo messaggio inviato</p>
@@ -50,15 +51,29 @@
                 </div>
             </div>
             <div class="right-col">
+                <!-- header right -->
                 <div class="right-header">
                     <div class="avatar-list"></div>
+                    <div class="person-info">
+                        <p class="strong"></p>
+                        <p>Ultimo messaggio inviato</p>
+                    </div>
                 </div>
+                <!-- /header right -->
+                <!-- main -->
+                <!-- /main -->
+
+                <!-- footer -->
+                <div class="right-footer">
+                    
+                </div>
+                <!-- /footer -->
+
             </div>
+
         </div>
 
-    </div>
-
-    <script src="js/script.js"></script>
+        <script src="js/script.js"></script>
 </body>
 
 </html>
