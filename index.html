@@ -24,7 +24,10 @@
         <div class="wrapper">
             <div class="left-col">
                 <div class="left-header">
-                    <div class="avatar-list"></div>
+
+                    <img class="avatar-list" src="img/avatar_io.jpg" alt="">
+                    <p class="strong">Sofia</p>
+
                 </div>
                 <div class="left-banner">
                     <div class="avatar-list"></div>
@@ -53,19 +56,41 @@
             <div class="right-col">
                 <!-- header right -->
                 <div class="right-header">
-                    <div class="avatar-list"></div>
+                    <img class="avatar-list" :src="`img/avatar${contacts[activeIndex].avatar}.jpg`" alt="">
                     <div class="person-info">
-                        <p class="strong"></p>
+                        <p class="strong">{{contacts[activeIndex].name}}</p>
                         <p>Ultimo messaggio inviato</p>
                     </div>
                 </div>
                 <!-- /header right -->
                 <!-- main -->
+                <div class="right-main">
+                    <div class="msg-row sent">
+                        <div class="messages">
+                            ciao
+                        </div>
+                    </div>
+                    <div class="msg-row received">
+                        <div class="messages">
+                    
+                            
+                            
+                        </div>
+                    </div>
+
+
+                </div>
                 <!-- /main -->
 
                 <!-- footer -->
                 <div class="right-footer">
-                    
+                    <div class="icons">
+                    <i class="fa-regular fa-face-smile"></i>
+                </div>
+                    <input type="text" class="footer-bar" name="" id="" placeholder="scrivi un messaggio">
+                    <div class="icons">
+                    <i class="fa-solid fa-microphone"></i>
+                </div>
                 </div>
                 <!-- /footer -->
 
