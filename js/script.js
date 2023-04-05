@@ -1,10 +1,12 @@
 const { createApp } = Vue;
-
+const dt = 
+luxon.DateTime;console.log(dt.now().setLocale('it').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS));
 createApp({
     data() {
         return {
             userMessage: "",
             activeIndex: 0,
+            filterInput: "",
             contacts: [
                 {
                     name: 'Michele',
@@ -175,11 +177,25 @@ createApp({
         currentIndex(newIndex) {
             this.activeIndex = newIndex;
         },
+        filterInputFun(){
+            const search = this.filterInput;
+            if (search === ""){
+                this.contacts.forEach((contact) => {
+                    contact.visible = true;
+                } );
+               
+            } else {
+                this.contacts.forEach((contact) => {
+                    const currentName = contact.name;
+                    contact.visible = currentName.includes(search)
+                })
+            }
+        },
         insertMessage(){
             if(this.userMessage.length > 0) {
               const message = {
                 message: this.userMessage,
-                date: this.userMessage,
+                date: luxon.DateTime.now().setZone('Europe/Rome').toFormat('yyyy-MM-dd HH:mm:ss'),
                 status: 'sent'
               }  
               this.contacts[this.activeIndex].messages.push(message)
@@ -187,7 +203,7 @@ createApp({
               setTimeout(() => {
                 const staticMessage = {
                     message: 'Ok',
-                    data: "12:00",
+                    date: luxon.DateTime.now().setZone('Europe/Rome').toFormat('yyyy-MM-dd HH:mm:ss'),
                     status: "received"
                 }
                 this.contacts[this.activeIndex].messages.push(staticMessage)

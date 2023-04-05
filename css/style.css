@@ -138,6 +138,7 @@ body {
     flex-grow: 1;
     background-image: url(../img/mine.jpg);
     padding: 20px;
+    overflow-y: auto;
 }
 
 .msg-row {

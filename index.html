@@ -33,14 +33,14 @@
                     <div class="avatar-list"></div>
                 </div>
                 <div class="left-search-bar">
-                    <!-- <span><i class="fa-solid fa-magnifying-glass"></i></span>
-                    <span> -->
-                    <input type="text" class="input-bar" placeholder="Cerca o inizia una nuova chat">
+                    
+                    <input type="text" class="input-bar" placeholder="Cerca o inizia una nuova chat" v-model.trim="filterInput" @keyup="filterInputFun">
                     </span>
                 </div>
                 <div class="scroll-list">
                     <ul class="ul-list">
-                        <li class="contacts" :class="index === activeIndex ? 'active' : ''" v-for="(people, index) in contacts" @click="currentIndex(index)">
+                        <li class="contacts" :class="index === activeIndex ? 'active' : ''" 
+                        v-show="people.visible" v-for="(people, index) in contacts" @click="currentIndex(index)">
 
                             <img class="avatar-list" :src="`img/avatar` + people.avatar +`.jpg`" alt="">
                             <div class="person-info">
@@ -75,7 +75,7 @@
                     <div class="msg-row" :class="sms.status" v-for="sms in contacts[activeIndex].messages">
                         <div class="messages" >
                            <p>{{sms.message}}</p> 
-                           <p class="date">{{sms.date}}</p>
+                           <p class="date">{{sms.date.substring(11).slice(0,-3)}}</p>
                         </div>
                     </div>
 
@@ -100,7 +100,7 @@
             </div>
 
         </div>
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.3.0/luxon.min.js" integrity="sha512-KKbQg5o92MwtJKR9sfm/HkREzfyzNMiKPIQ7i7SZOxwEdiNCm4Svayn2DBq7MKEdrqPJUOSIpy1v6PpFlCQ0YA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="js/script.js"></script>
 </body>
 
